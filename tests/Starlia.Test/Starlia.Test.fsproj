@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,17 +30,21 @@
     <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4">
       <Package>opentk</Package>
     </Reference>
-    <Reference Include="Mono.Cecil, Version=0.9.5.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.1\Framework\v4.0\Microsoft.FSharp.Targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\src\Protected\Protected.fsproj">
       <Project>{24BDAEE8-2A5D-444D-A493-B5809D802910}</Project>
       <Name>Protected</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Starlia.Simple\Starlia.Simple.fsproj">
+      <Name>Starlia.Simple</Name>
+      <Project>{c6d3d41d-71e7-4b1a-b556-e8c32784bfbd}</Project>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\src\Starlia\Starlia.fsproj">
       <Project>{9F969674-529E-45C3-9A1F-BF4AB721C31A}</Project>
@@ -49,10 +53,6 @@
     <ProjectReference Include="..\..\src\Starlia.Helpers\Starlia.Helpers.fsproj">
       <Project>{3E778C8F-10A5-4162-9CD1-7605AF5149CC}</Project>
       <Name>Starlia.Helpers</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\Starlia.Simple\Starlia.Simple.fsproj">
-      <Project>{643344F2-3122-42AD-95BA-14B6EFC702F7}</Project>
-      <Name>Starlia.Simple</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
