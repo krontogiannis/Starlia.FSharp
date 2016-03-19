@@ -19,9 +19,9 @@
         <Command type="AfterBuild" command="${SolutionDir}/src/Scripts/Protect.exe ${TargetFile}" workingdir="${TargetDir}" />
       </CustomCommands>
     </CustomCommands>
-    <Optimize>true</Optimize>
-    <DefineConstants>
-    </DefineConstants>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG</DefineConstants>
+    <Tailcalls>false</Tailcalls>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>
@@ -37,42 +37,8 @@
     <DefineConstants>
     </DefineConstants>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="OpenTK.dll.config">
-      <Paket>True</Paket>
-    </Content>
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="FSharp.Core" />
-    <Reference Include="System.Drawing" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="SShader.fs" />
-    <Compile Include="SLayer.fs" />
-    <Compile Include="SModel.fs" />
-    <Compile Include="SObject.fs" />
-    <Compile Include="SListLayer.fs" />
-    <Compile Include="SCore.fs" />
-    <Compile Include="SCamera.fs" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets" />
   <Import Project="..\packages\AssimpNet.3.3.1\build\AssimpNet.targets" Condition="Exists('..\packages\AssimpNet.3.3.1\build\AssimpNet.targets')" />
-  <ItemGroup>
-    <ProjectReference Include="..\Protected\Protected.fsproj">
-      <Project>{24BDAEE8-2A5D-444D-A493-B5809D802910}</Project>
-      <Name>Protected</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Starlia.Helpers\Starlia.Helpers.fsproj">
-      <Project>{3E778C8F-10A5-4162-9CD1-7605AF5149CC}</Project>
-      <Name>Starlia.Helpers</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="paket.references" />
-  </ItemGroup>
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0')">
       <ItemGroup>
@@ -122,4 +88,34 @@
     </When>
   </Choose>
   <Import Project="..\..\packages\AssimpNet\build\AssimpNet.targets" Condition="Exists('..\..\packages\AssimpNet\build\AssimpNet.targets')" Label="Paket" />
+  <ItemGroup>
+    <Content Include="OpenTK.dll.config">
+      <Paket>True</Paket>
+    </Content>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="SShader.fs" />
+    <Compile Include="SLayer.fs" />
+    <Compile Include="SModel.fs" />
+    <Compile Include="SObject.fs" />
+    <Compile Include="SListLayer.fs" />
+    <Compile Include="SCore.fs" />
+    <Compile Include="SCamera.fs" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="FSharp.Core" />
+    <Reference Include="System.Drawing" />
+    <ProjectReference Include="..\Protected\Protected.fsproj">
+      <Project>{24BDAEE8-2A5D-444D-A493-B5809D802910}</Project>
+      <Name>Protected</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Starlia.Helpers\Starlia.Helpers.fsproj">
+      <Project>{3E778C8F-10A5-4162-9CD1-7605AF5149CC}</Project>
+      <Name>Starlia.Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

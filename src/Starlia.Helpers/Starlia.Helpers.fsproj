@@ -14,31 +14,15 @@
     <OutputPath>bin\Debug</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <ConsolePause>false</ConsolePause>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <DefineConstants>DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="OpenTK.dll.config">
-      <Paket>True</Paket>
-    </Content>
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="FSharp.Core" />
-    <Reference Include="System.Drawing" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="SMath.fs" />
-    <Compile Include="Lambda.fs" />
-    <Compile Include="Image.fs" />
-    <Compile Include="Log.fs" />
-    <None Include="paket.references" />
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets" />
   <Choose>
     <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v2.0' Or $(TargetFrameworkVersion) == 'v3.0' Or $(TargetFrameworkVersion) == 'v3.5' Or $(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1')">
@@ -54,4 +38,23 @@
       </ItemGroup>
     </When>
   </Choose>
+  <ItemGroup>
+    <Content Include="OpenTK.dll.config">
+      <Paket>True</Paket>
+    </Content>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="SMath.fs" />
+    <Compile Include="Lambda.fs" />
+    <Compile Include="Image.fs" />
+    <Compile Include="Log.fs" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="FSharp.Core" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
 </Project>
