@@ -31,7 +31,7 @@ let layer = StaticShaderLayer(SOrthoCamera(Vector2.Zero, Vector2.One), Shaders.b
 SCore.AddLast(layer)
 layer.Add(MyObject())
 
-let objFile = @"C:\Users\kostas\Desktop\extincteur_obj.obj"
+let objFile = System.IO.Path.GetFullPath @"../../../resources/zombie.obj"
 let obj = S3dObject(Vector3.Zero, Vector3.One, Vector3.Zero, SSimpleModel(objFile))
 layer.Add(obj)
 
